@@ -1,0 +1,31 @@
+ <main class="main-content">
+    
+      <div class="books-grid" *ngFor="let book of books">
+        <div class="book-card" >
+          <!-- *ngFor="let book of books"
+          <a [routerLink]="['/book', book.id]"> -->
+            <div class="book-image">
+              <!-- <img [src]="book.imageUrl" [alt]="book.title"> -->
+              <div class="out-of-stock" >OUT OF STOCK</div>  <!--*ngIf="book.stock === 0"-->
+              <!-- *ngIf="!book.inStock" -->
+            </div>
+            <div class="book-info">
+              <h3 class="book-title">book Title</h3>
+              <p class="book-author">by book auther</p>
+              <div class="book-rating">
+                <span class="rating-value">book rating</span>
+                <div class="stars">
+                  <i class="star-icon filled" ></i> <!--*ngIf="!book.inStock"-->
+                  <i class="star-icon" ></i> <!--*ngFor="let star of [1,2,3,4,5].slice(book.rating)"-->
+                </div>
+                <span class="reviews-count">book riew Count</span>
+              </div>
+              <div class="book-price">
+                <span class="current-price">Rs. book price</span>
+                <span class="original-price">Rs.book actual price</span>
+              </div>
+            </div>
+          <!-- </a> -->
+        </div>
+      </div>
+    </main>

@@ -1,0 +1,129 @@
+<div class="auth-container">
+  <div class="auth-card-left">
+    <div class="left-panel">
+      <div class="illustration">
+        <img src="https://png.pngtree.com/png-clipart/20220111/ourmid/pngtree-shopping-cart-mobile-girl-simple-flat-hand-painted-elements-png-image_4266208.png" alt="Online Book Shopping Illustration">
+      </div>
+      <h2 class="shop-title">ONLINE BOOK SHOPPING</h2>
+    </div>
+  </div>
+    <div class="auth-card">
+      <div class="right-panel">
+        <div class="tabs">
+          <div 
+            class="tab" 
+            [ngClass]="{'active': activeTab === 'login'}" 
+            (click)="setActiveTab('login')"
+          >
+            LOGIN
+          </div>
+          <div 
+            class="tab" 
+            [ngClass]="{'active': activeTab === 'signup'}" 
+            (click)="setActiveTab('signup')"
+          >
+            SIGNUP
+          </div>
+        </div>
+        
+        <!-- Login Form -->
+        <form *ngIf="activeTab === 'login'" class="auth-form" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+          <div class="form-group">
+            <label for="email">Email Id</label>
+            <input 
+              type="email" 
+              id="email" 
+              formControlName="email" 
+              placeholder="Enter your email"
+            >
+          </div>
+          
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="password-input">
+              <input 
+                [type]="showPassword ? 'text' : 'password'" 
+                id="password" 
+                formControlName="password" 
+                placeholder="Enter your password"
+              >
+              <span class="password-toggle" (click)="togglePasswordVisibility()">
+                <i class="fa" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+              </span>
+            </div>
+            <div class="forgot-password">
+              <a href="javascript:void(0)" (click)="forgotPassword()">Forgot Password?</a>
+            </div>
+          </div>
+          
+          <button type="submit" class="btn-login">Login</button>
+          
+          <div class="divider">
+            <span>OR</span>
+          </div>
+          
+          <div class="social-login">
+            <button type="button" class="btn-facebook" (click)="loginWithFacebook()">
+              Facebook
+            </button>
+            <button type="button" class="btn-google" (click)="loginWithGoogle()">
+              Google
+            </button>
+          </div>
+        </form>
+        
+        <!-- Signup Form -->
+        <form *ngIf="activeTab === 'signup'" class="auth-form" [formGroup]="signupForm" (ngSubmit)="onSignupSubmit()">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input 
+              type="text" 
+              id="fullName" 
+              formControlName="fullName" 
+              placeholder="Enter full name"
+            >
+            <small *ngIf="signupForm.get('fullName')?.touched && signupForm.get('fullName')?.invalid" class="error-text">
+              Enter full name
+            </small>
+          </div>
+          
+          <div class="form-group">
+            <label for="signupEmail">Email Id</label>
+            <input 
+              type="email" 
+              id="signupEmail" 
+              formControlName="email" 
+              placeholder="Enter your email"
+            >
+          </div>
+          
+          <div class="form-group">
+            <label for="signupPassword">Password</label>
+            <div class="password-input">
+              <input 
+                [type]="showSignupPassword ? 'text' : 'password'" 
+                id="signupPassword" 
+                formControlName="password" 
+                placeholder="Enter your password"
+              >
+              <span class="password-toggle" (click)="toggleSignupPasswordVisibility()">
+                <i class="fa" [ngClass]="showSignupPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+              </span>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="mobileNumber">Mobile Number</label>
+            <input 
+              type="tel" 
+              id="mobileNumber" 
+              formControlName="mobileNumber" 
+              placeholder="Enter mobile number"
+            >
+          </div>
+          
+          <button type="submit" class="btn-signup">Signup</button>
+        </form>
+      </div>
+    </div>
+  </div>
