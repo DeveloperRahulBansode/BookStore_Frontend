@@ -13,7 +13,7 @@ $star-color: #ffc107;
     // margin-top: 70px;
     // width: 70%;
     // margin-left: 200px;
-    // scroll-behavior:smooth;
+    scroll-behavior:smooth;
     
   
     .books-header {
@@ -57,15 +57,20 @@ $star-color: #ffc107;
       gap: 20px;
   
       .book-card {
-        background-color: $light-gray;
+        background-color: white;
         border-radius: 4px;
         overflow: hidden;
+        border-width: 1px;
+        border: 1px solid #ddd;
         transition: transform 0.2s, box-shadow 0.2s;
         
+        
         &:hover {
-          transform: translateY(-5px);
+          transform: translateY(-2px);
           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
         }
+        
   
         a {
           text-decoration: none;
@@ -73,12 +78,11 @@ $star-color: #ffc107;
         }
   
         .book-image {
-          position: relative;
-          height: 220px;
+          height: 200px;
           display: flex;
           justify-content: center;
           align-items: center;
-          background-color: white;
+          background-color: rgb(237, 237, 237);
           padding: 10px;
   
           img {
@@ -102,6 +106,7 @@ $star-color: #ffc107;
   
         .book-info {
           padding: 15px;
+          
   
           .book-title {
             font-size: 16px;

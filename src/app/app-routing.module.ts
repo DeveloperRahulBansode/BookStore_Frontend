@@ -7,7 +7,13 @@ import { DiaplayBookComponent } from './Component/diaplay-book/diaplay-book.comp
 
 const routes: Routes = [
   { path: 'log', component: LoginComponent },
-  { path: 'home',component:HomeComponent},
+  { 
+    path: 'home', 
+    component: HomeComponent,
+    children: [
+      { path: 'disp', component: DiaplayBookComponent }
+    ]
+  },
   { path:'bookview',component:BookViewComponent},
   {path:'dis',component:DiaplayBookComponent},
   { path: '', redirectTo: 'log', pathMatch: 'full' } // Default Route

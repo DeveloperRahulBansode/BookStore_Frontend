@@ -11,22 +11,19 @@ export class HttpService {
   PostService(reqUrl:string, reqData:any,token:boolean=false,httpOptions:any={}){
     return this.httpClient.post(reqUrl,reqData,token && httpOptions);
   }
-  PostServiceToken(url: string, reqData: any, token: boolean = true, httpOptions: any = {}) {
-    return this.httpClient.post(url, reqData, token ? httpOptions : {});}
-
-
-  DeleteService(url:string,token:boolean=true,httpOptions:any={}){
-    return this.httpClient.delete(url,token && httpOptions);
-  }
-
-  GetService(url:string,token:boolean=true,httpOptions:any={}){
-    return this.httpClient.get(url,token && httpOptions);
-  }
-  PutService(url:string, reqData:any,token:boolean=true,httpOptions:any={}){
-    return this.httpClient.put(url,reqData,token && httpOptions);
-  }
   
-  PatchService(url:string, reqData:any,token:boolean=true,httpOptions:any={}){
-    return this.httpClient.patch(url,reqData,token && httpOptions);
-  }
+    // DELETE request, no token needed for general delete operations (like removing books from inventory)
+    DeleteService(url: string, httpOptions: any = {}) {
+      return this.httpClient.delete(url, httpOptions);
+    }
+  
+    // GET request, no token needed for general GET operations (like fetching books)
+    GetService(url: string, httpOptions: any = {}) {
+      return this.httpClient.get(url, httpOptions);
+    }
+  
+    // PUT request, no token needed for general PUT operations (like updating book details)
+    PutService(url: string, reqData: any, httpOptions: any = {}) {
+      return this.httpClient.put(url, reqData, httpOptions);
+    }
 }
